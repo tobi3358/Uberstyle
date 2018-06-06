@@ -1,14 +1,15 @@
 //
-//  ViewController.swift
+//  SignupViewController.swift
 //  Uberstile
 //
-//  Created by Tobias Brammer Fredriksen on 04/06/2018.
+//  Created by Tobias Brammer Fredriksen on 06/06/2018.
 //  Copyright © 2018 Tobias Brammer Fredriksen. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
+class SignupViewController: UIViewController {
     @IBOutlet weak var EmailTextfield: UITextField!
     @IBOutlet weak var PasswordTextfield: UITextField!
     
@@ -18,19 +19,18 @@ class ViewController: UIViewController {
         
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
     
-    @IBAction func LoginBtn(_ sender: Any) {
-        
+    @IBAction func SignupButton(_ sender: Any) {
         //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
         
         let parameters = ["email": EmailTextfield.text, "password": PasswordTextfield.text] as [String : Any]
@@ -79,4 +79,3 @@ class ViewController: UIViewController {
     }
     
 }
-

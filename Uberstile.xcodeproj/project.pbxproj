@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		542B245420C7FA4900DA7B19 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542B245320C7FA4900DA7B19 /* SignupViewController.swift */; };
 		549974D220C5279A00F560B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549974D120C5279A00F560B9 /* AppDelegate.swift */; };
 		549974D420C5279A00F560B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549974D320C5279A00F560B9 /* ViewController.swift */; };
 		549974D720C5279A00F560B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 549974D520C5279A00F560B9 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		542B245320C7FA4900DA7B19 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		549974CE20C5279A00F560B9 /* Uberstile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uberstile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549974D120C5279A00F560B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		549974D320C5279A00F560B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				549974D820C5279B00F560B9 /* Assets.xcassets */,
 				549974DA20C5279B00F560B9 /* LaunchScreen.storyboard */,
 				549974DD20C5279B00F560B9 /* Info.plist */,
+				542B245320C7FA4900DA7B19 /* SignupViewController.swift */,
 			);
 			path = Uberstile;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				542B245420C7FA4900DA7B19 /* SignupViewController.swift in Sources */,
 				549974D420C5279A00F560B9 /* ViewController.swift in Sources */,
 				549974D220C5279A00F560B9 /* AppDelegate.swift in Sources */,
 			);
