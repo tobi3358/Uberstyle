@@ -15,13 +15,6 @@ class Mainmenu: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let tokenObject = UserDefaults.standard.object(forKey: "token")
-        
-        if let token = tokenObject as? String {
-            
-            tokentxt.text = token
-            
-        }
         
     }
     
@@ -30,4 +23,26 @@ class Mainmenu: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func Logud(_ sender: Any) {
+        let url = NSURL(string: "http://localhost/api/user/logout") //Remember to put ATS exception if the URL is not https
+        let request = NSMutableURLRequest(url: url! as URL)
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") //Optional
+        request.httpMethod = "PUT"
+        let session = URLSession(configuration:URLSessionConfiguration.default, delegate: nil, delegateQueue: nil)
+        let data = "".data(using: String.Encoding.utf8)
+        request.httpBody = data
+        
+        let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
+            
+            if error != nil {
+                
+                //handle error
+            }
+            else {
+                
+                let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                print("Parsed JSON: '\(jsonStr)'")
+            }
+        }
+        dataTask.resume()    }
 }
