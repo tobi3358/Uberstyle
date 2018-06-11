@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		542B245420C7FA4900DA7B19 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542B245320C7FA4900DA7B19 /* SignupViewController.swift */; };
+		542B245620C954D200DA7B19 /* Mainmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542B245520C954D200DA7B19 /* Mainmenu.swift */; };
 		549974D220C5279A00F560B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549974D120C5279A00F560B9 /* AppDelegate.swift */; };
 		549974D420C5279A00F560B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549974D320C5279A00F560B9 /* ViewController.swift */; };
 		549974D720C5279A00F560B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 549974D520C5279A00F560B9 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		542B245320C7FA4900DA7B19 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		542B245520C954D200DA7B19 /* Mainmenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mainmenu.swift; sourceTree = "<group>"; };
 		549974CE20C5279A00F560B9 /* Uberstile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uberstile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549974D120C5279A00F560B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		549974D320C5279A00F560B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				549974DA20C5279B00F560B9 /* LaunchScreen.storyboard */,
 				549974DD20C5279B00F560B9 /* Info.plist */,
 				542B245320C7FA4900DA7B19 /* SignupViewController.swift */,
+				542B245520C954D200DA7B19 /* Mainmenu.swift */,
 			);
 			path = Uberstile;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				542B245420C7FA4900DA7B19 /* SignupViewController.swift in Sources */,
 				549974D420C5279A00F560B9 /* ViewController.swift in Sources */,
 				549974D220C5279A00F560B9 /* AppDelegate.swift in Sources */,
+				542B245620C954D200DA7B19 /* Mainmenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +441,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3Z29MLZ4P7;
 				INFOPLIST_FILE = Uberstile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,6 +460,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3Z29MLZ4P7;
 				INFOPLIST_FILE = Uberstile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

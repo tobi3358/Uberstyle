@@ -12,11 +12,12 @@ import UIKit
 class SignupViewController: UIViewController {
     @IBOutlet weak var EmailTextfield: UITextField!
     @IBOutlet weak var PasswordTextfield: UITextField!
+    var token = "";
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        let tokenObject = UserDefaults.standard.object(forKey: "token")
         
     }
     
@@ -36,7 +37,7 @@ class SignupViewController: UIViewController {
         let parameters = ["email": EmailTextfield.text, "password": PasswordTextfield.text] as [String : Any]
         
         //create the url with URL
-        let url = URL(string: "")! //change the url
+        let url = URL(string: "http://172.16.113.175:80/api/user/create")! //change the url
         
         //create the session object
         let session = URLSession.shared
@@ -69,6 +70,8 @@ class SignupViewController: UIViewController {
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                     print(json)
+                    self.token = json["token"] as! String
+                    UserDefaults.standard.set(self.token, forKey: "token")
                     // handle json...
                 }
             } catch let error {
