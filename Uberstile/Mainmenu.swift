@@ -15,7 +15,13 @@ class Mainmenu: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let tokenObject = UserDefaults.standard.object(forKey: "token")
         
+        if let token = tokenObject as? String {
+            
+            tokentxt.text = token
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,7 +48,12 @@ class Mainmenu: UIViewController {
                 
                 let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                 print("Parsed JSON: '\(jsonStr)'")
+                let defaults = UserDefaults.standard
+                defaults.removeObject(forKey: "token")
+                defaults.synchronize()
             }
         }
-        dataTask.resume()    }
+        dataTask.resume()
+        
+    }
 }

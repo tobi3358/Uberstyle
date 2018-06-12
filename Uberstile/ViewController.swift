@@ -18,8 +18,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         if let token = tokenObject as? String {
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "Login", sender: self)
+            }
             
-            EmailTextfield.text = token
         }
         
     }
@@ -130,9 +132,15 @@ class ViewController: UIViewController {
             }
             
             let datastring = String(data: data, encoding: String.Encoding.utf8)
-            print(datastring)
-            self.setCookies(response: response!)
+            //print(datastring)
+            //self.setCookies(response: response!)
+            //UserDefaults.standard.set(response.json()["Set-Cookie"], forKey: "token")
+            print(response)
             
+            if let httpresponse = response as? HTTPURLResponse {
+                let Respones1 = httpresponse.allHeaderFields["Set-Cookie"] as? String
+                UserDefaults.standard.set(Respones1, forKey: "token")
+            }
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "Login", sender: self)
             }
@@ -143,8 +151,6 @@ class ViewController: UIViewController {
     @IBAction func LoginBtn(_ sender: Any) {
         //Gettoken()
         login()
-        sleep(3)
-        UserDefaults.standard.set(token, forKey: "token")
     }
 }
 
