@@ -1,43 +1,42 @@
 //
-//  SignupViewController.swift
+//  ChangePasswordViewcontroller.swift
 //  Uberstile
 //
-//  Created by Tobias Brammer Fredriksen on 06/06/2018.
+//  Created by Tobias Brammer Fredriksen on 12/06/2018.
 //  Copyright © 2018 Tobias Brammer Fredriksen. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class SignupViewController: UIViewController {
-    @IBOutlet weak var EmailTextfield: UITextField!
-    @IBOutlet weak var PasswordTextfield: UITextField!
-    @IBOutlet weak var NameTextfield: UITextField!
-    @IBOutlet weak var LastnameTextfield: UITextField!
-    
+class ChangePasswordViewController: UIViewController {
+
+    @IBOutlet weak var OldPasswordtxt: UITextField!
+    @IBOutlet weak var NewPasswordtxt: UITextField!
+    var email1 = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let tokenObject = UserDefaults.standard.object(forKey: "token")
+        let emailObject = UserDefaults.standard.object(forKey: "email")
         
+        if let token = tokenObject as? String {
+        }
+        if let email = emailObject as? String {
+            email1 = email
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
-    
-    @IBAction func SignupButton(_ sender: Any) {
+    @IBAction func SavePassword(_ sender: Any) {
         //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
+        let parameters = ["email": email1, "password": OldPasswordtxt.text, "new_password": NewPasswordtxt.text] as [String : Any]
         
-        let parameters = ["email": EmailTextfield.text, "password": PasswordTextfield.text, "first_name": NameTextfield.text, "surname": LastnameTextfield.text] as [String : Any]
-        
-        //create the url with URL
-        let url = URL(string: "http://localhost/api/user/create")! //change the url
+        //url
+        let url = URL(string: "http://localhost/api/user/password/change")! //change the url
         
         //create the session object
         let session = URLSession.shared
@@ -54,10 +53,11 @@ class SignupViewController: UIViewController {
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        //request.addValue("Authorization", forHTTPHeaderField: "Bearer: \(token)")
+        //request.setValue("Bearer: "+(token), forHTTPHeaderField: "Authorization")
         
         //create dataTask using the session object to send data to the server
-        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-            
+        let task = session.dataTask(with: request) { data, response, error -> Void in
             guard error == nil else {
                 return
             }
@@ -67,10 +67,11 @@ class SignupViewController: UIViewController {
             }
             
             let datastring = String(data: data, encoding: String.Encoding.utf8)
-            print(datastring)
-            
-        })
+            //print(datastring)
+            //self.setCookies(response: response!)
+            //UserDefaults.standard.set(response.json()["Set-Cookie"], forKey: "token")
+            print(response)
+        }
         task.resume()
     }
-    
 }

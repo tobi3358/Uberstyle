@@ -13,11 +13,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var PasswordTextfield: UITextField!
     var token = "";
     let tokenObject = UserDefaults.standard.object(forKey: "token")
+    let url = URL(string: "http://localhost/api/user/login")! //change the url
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         if let token = tokenObject as? String {
+            let jar = HTTPCookieStorage.shared
+            let cookieHeaderField = ["Set-Cookie": tokenObject]
+            let cookies = HTTPCookie.cookies(withResponseHeaderFields: cookieHeaderField as! [String : String], for: url)
+            jar.setCookies(cookies, for: url, mainDocumentURL: url)
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "Login", sender: self)
             }
@@ -100,8 +105,6 @@ class ViewController: UIViewController {
         //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
         let parameters = ["email": EmailTextfield.text, "password": PasswordTextfield.text] as [String : Any]
         
-        //create the url with URL
-        let url = URL(string: "http://localhost/api/user/login")! //change the url
         
         //create the session object
         let session = URLSession.shared
@@ -139,6 +142,7 @@ class ViewController: UIViewController {
             
             if let httpresponse = response as? HTTPURLResponse {
                 let Respones1 = httpresponse.allHeaderFields["Set-Cookie"] as? String
+                print(Respones1)
                 UserDefaults.standard.set(Respones1, forKey: "token")
             }
             DispatchQueue.main.async {

@@ -16,6 +16,10 @@
 		549974DC20C5279B00F560B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 549974DA20C5279B00F560B9 /* LaunchScreen.storyboard */; };
 		549974E720C5279B00F560B9 /* UberstileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549974E620C5279B00F560B9 /* UberstileTests.swift */; };
 		549974F220C5279C00F560B9 /* UberstileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549974F120C5279C00F560B9 /* UberstileUITests.swift */; };
+		54E9B33C20CFA2FB009E3FB0 /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9B33B20CFA2FB009E3FB0 /* DriverViewController.swift */; };
+		54E9B33E20CFA30B009E3FB0 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9B33D20CFA30B009E3FB0 /* UserViewController.swift */; };
+		54E9B34020CFA599009E3FB0 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9B33F20CFA599009E3FB0 /* UserInfoViewController.swift */; };
+		54E9B34220CFC764009E3FB0 /* ChangePasswordViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9B34120CFC764009E3FB0 /* ChangePasswordViewcontroller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		549974ED20C5279C00F560B9 /* UberstileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UberstileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		549974F120C5279C00F560B9 /* UberstileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberstileUITests.swift; sourceTree = "<group>"; };
 		549974F320C5279C00F560B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54E9B33B20CFA2FB009E3FB0 /* DriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverViewController.swift; sourceTree = "<group>"; };
+		54E9B33D20CFA30B009E3FB0 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		54E9B33F20CFA599009E3FB0 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		54E9B34120CFC764009E3FB0 /* ChangePasswordViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewcontroller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,10 @@
 				549974DD20C5279B00F560B9 /* Info.plist */,
 				542B245320C7FA4900DA7B19 /* SignupViewController.swift */,
 				542B245520C954D200DA7B19 /* Mainmenu.swift */,
+				54E9B33B20CFA2FB009E3FB0 /* DriverViewController.swift */,
+				54E9B33D20CFA30B009E3FB0 /* UserViewController.swift */,
+				54E9B33F20CFA599009E3FB0 /* UserInfoViewController.swift */,
+				54E9B34120CFC764009E3FB0 /* ChangePasswordViewcontroller.swift */,
 			);
 			path = Uberstile;
 			sourceTree = "<group>";
@@ -263,6 +275,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				542B245420C7FA4900DA7B19 /* SignupViewController.swift in Sources */,
+				54E9B34220CFC764009E3FB0 /* ChangePasswordViewcontroller.swift in Sources */,
+				54E9B34020CFA599009E3FB0 /* UserInfoViewController.swift in Sources */,
+				54E9B33E20CFA30B009E3FB0 /* UserViewController.swift in Sources */,
+				54E9B33C20CFA2FB009E3FB0 /* DriverViewController.swift in Sources */,
 				549974D420C5279A00F560B9 /* ViewController.swift in Sources */,
 				549974D220C5279A00F560B9 /* AppDelegate.swift in Sources */,
 				542B245620C954D200DA7B19 /* Mainmenu.swift in Sources */,

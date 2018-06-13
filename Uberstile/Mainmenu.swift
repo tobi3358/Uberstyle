@@ -51,6 +51,9 @@ class Mainmenu: UIViewController {
                 let defaults = UserDefaults.standard
                 defaults.removeObject(forKey: "token")
                 defaults.synchronize()
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "Logud", sender: self)
+                }
             }
         }
         dataTask.resume()
