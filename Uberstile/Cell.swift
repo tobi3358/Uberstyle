@@ -14,6 +14,8 @@ class Cell: NSObject {
     //properties
     
     var ID: Int?
+    var origin: String?
+    var object: NSDictionary?
     
     
     //empty constructor
@@ -25,9 +27,11 @@ class Cell: NSObject {
     
     //construct with @name parameters
     
-    init(ID: Int) {
+    init(ID: Int, origin: String, object:NSDictionary) {
         
         self.ID = ID
+        self.origin = origin
+        self.object = object
         
     }
     
@@ -35,7 +39,8 @@ class Cell: NSObject {
     //prints object's current state
     
     override var description: String {
-        return "ID: \(ID!)"
+        return "ID: \(ID!) Origin: \(origin) object: \(object)"
+        
         
     }
     

@@ -11,8 +11,8 @@ import UIKit
 import MapKit
 
 class DriverViewController: UIViewController, CLLocationManagerDelegate {
-    var ID = 0
     var locationManager: CLLocationManager!
+    var jsonlement:NSDictionary = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class DriverViewController: UIViewController, CLLocationManagerDelegate {
         if let token = tokenObject as? String {
             
         }
-        print(ID)
+        print(jsonlement)
         
         if (CLLocationManager.locationServicesEnabled())
         {
@@ -48,32 +48,42 @@ class DriverViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func TakeOrder(_ sender: Any) {
-        let url = NSURL(string: "http://localhost/api/order/accept") //Remember to put ATS exception if the URL is not https
-        let request = NSMutableURLRequest(url: url! as URL)
-        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") //Optional
-        request.httpMethod = "PUT"
-        let session = URLSession(configuration:URLSessionConfiguration.default, delegate: nil, delegateQueue: nil)
-        let data = "".data(using: String.Encoding.utf8)
-        request.httpBody = data
+        let parameters = ["order_id": ID, "driver_cords": ["latitude": center.latitude, "longtitude":center.longitude]] as [String : Any]
         
-        let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
-            
-            if error != nil {
-                
-                //handle error
-            }
-            else {
-                
-                let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                print("Parsed JSON: '\(jsonStr)'")
-                let defaults = UserDefaults.standard
-                defaults.removeObject(forKey: "token")
-                defaults.synchronize()
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "Logud", sender: self)
-                }
-            }
+        //create the url with URL
+        let url = URL(string: "http://172.16.113.184:5000/api/order/accept")! //change the url
+        
+        //create the session object
+        let session = URLSession.shared
+        
+        //now create the URLRequest object using the url object
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT" //set http method as POST
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+        } catch let error {
+            print(error.localizedDescription)
         }
-        dataTask.resume()
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        //create dataTask using the session object to send data to the server
+        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                return
+            }
+            
+            guard let data = data else {
+                return
+            }
+            
+            let datastring = String(data: data, encoding: String.Encoding.utf8)
+            print(datastring)
+            
+        })
+        task.resume()
     }
 }

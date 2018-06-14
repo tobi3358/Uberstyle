@@ -51,7 +51,7 @@ class UserViewController: UIViewController, CLLocationManagerDelegate{
         center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         self.mapView.setRegion(region, animated: true)
-        print(location.coordinate.latitude)
+        print(center.latitude)
     }
     
     var annotation_latitude = 0.0
@@ -81,19 +81,32 @@ class UserViewController: UIViewController, CLLocationManagerDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    var value = 50
+    var value1 = 50
     @IBAction func Slidervaluechanged(_ sender: Any) {
         // Get Float value from Slider when it is moved.
-        value = Int(Slider.value)
+        value1 = Int(Slider.value)
         
         // Assign text to string representation of float.
-        Slidertxt.text = String(round(Double(value)))
+        Slidertxt.text = String(round(Double(value1)))
+    }
+    
+    func displayAlert(title: String, message: String) {
+        
+        let alertcontroller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alertcontroller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(alertcontroller, animated: true, completion: nil)
+        
     }
     @IBAction func CreateOrder(_ sender: Any) {
+        if annotation_longitude == 0.0 {
+            displayAlert(title: "Error in form", message: "Destination has to be selected")
+        } else {
         //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
-        let parameters = ["userid": User_idObject, "user_latitude": center.latitude, "user_longtitude": center.longitude, "radius": value] as [String : Any]
+        let parameters = ["price": value1, "destination_cords": ["latitude": annotation_latitude, "longtitude": annotation_longitude], "user_cords": ["latitude": center.latitude, "longtitude": center.longitude]] as [String : Any]
         print(parameters)
-        let url = URL(string: "http://localhost/api/order/create")! //change the url
+        let url = URL(string: "http://172.16.113.184:5000/api/order/create")! //change the url
         
         //create the session object
         let session = URLSession.shared
@@ -124,7 +137,7 @@ class UserViewController: UIViewController, CLLocationManagerDelegate{
             }
             
             let datastring = String(data: data, encoding: String.Encoding.utf8)
-            //print(datastring)
+            print(datastring)
             //self.setCookies(response: response!)
             //UserDefaults.standard.set(response.json()["Set-Cookie"], forKey: "token")
             print(response)
@@ -136,6 +149,7 @@ class UserViewController: UIViewController, CLLocationManagerDelegate{
             }
         }
         task.resume()
+        }
     }
 }
 

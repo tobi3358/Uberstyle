@@ -14,11 +14,13 @@ class PendingOrderTableViewController: UITableViewController{
     //var tableData = Array<JSONTableData>()
     var tableData: NSArray = NSArray()
     var UID:Int = 0
+    var origin:String = ""
+    var element:NSDictionary = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "http://localhost/api/orders/pending")
+        let url = URL(string: "http://172.16.113.184:5000/api/orders/pending")
         
         let task = URLSession.shared.dataTask(with: url! as URL) { data, response, error in
             
@@ -36,7 +38,10 @@ class PendingOrderTableViewController: UITableViewController{
                         jsonElement = json[i] as! NSDictionary
                         print(json[i])
                         let cell = Cell()
-                        var id = jsonElement["user_id"] as! Int
+                        var id = jsonElement["order_id"] as! Int
+                        var origin = jsonElement["origin"] as! String
+                        cell.object = jsonElement
+                        cell.origin = origin
                         cell.ID = id
                         print(cell)
                         Data.add(cell)
@@ -87,9 +92,8 @@ class PendingOrderTableViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print(tableData[indexPath.item])
         let IDitem: Cell = tableData[indexPath.row] as! Cell
-        var intitem = IDitem.ID
-        UID = intitem!
-        print(UID)
+        var elementitem = IDitem.object
+        element = elementitem!
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "Info", sender: self)
         }
@@ -101,7 +105,7 @@ class PendingOrderTableViewController: UITableViewController{
 
         if (segue.identifier == "Info") {
             let vc = segue.destination as! DriverViewController
-            vc.ID = UID
+            vc.jsonlement = element
         }else{
             print("hvor er planen")
         }

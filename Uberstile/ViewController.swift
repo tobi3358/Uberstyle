@@ -8,15 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var EmailTextfield: UITextField!
     @IBOutlet weak var PasswordTextfield: UITextField!
     var token = "";
     let tokenObject = UserDefaults.standard.object(forKey: "token")
-    let url = URL(string: "http://localhost/api/user/login")! //change the url
+    let url = URL(string: "http://172.16.113.184:5000/api/user/login")! //change the url
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        EmailTextfield.delegate = self
+        PasswordTextfield.delegate = self
         
         if let token = tokenObject as? String {
             let jar = HTTPCookieStorage.shared
@@ -31,6 +33,7 @@ class ViewController: UIViewController {
         
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

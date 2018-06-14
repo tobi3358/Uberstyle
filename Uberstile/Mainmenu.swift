@@ -30,7 +30,7 @@ class Mainmenu: UIViewController {
     }
     
     @IBAction func Logud(_ sender: Any) {
-        let url = NSURL(string: "http://localhost/api/user/logout") //Remember to put ATS exception if the URL is not https
+        let url = NSURL(string: "http://172.16.113.184:5000/api/user/logout") //Remember to put ATS exception if the URL is not https
         let request = NSMutableURLRequest(url: url! as URL)
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") //Optional
         request.httpMethod = "PUT"

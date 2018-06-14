@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class UserInfoViewController: UIViewController {
+class UserInfoViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var lastnameLabel: UILabel!
@@ -23,10 +23,12 @@ class UserInfoViewController: UIViewController {
         let tokenObject = UserDefaults.standard.object(forKey: "token")
         let emailObject = UserDefaults.standard.object(forKey: "email")
         let User_idObject = UserDefaults.standard.object(forKey: "user_id")
+        Emailtxt.delegate = self
+
         
         if let token = tokenObject as? String {
         }
-        let url = URL(string: "http://localhost/api/user/details")
+        let url = URL(string: "http://172.16.113.184:5000/api/user/details")
         
         let task = URLSession.shared.dataTask(with: url! as URL) { data, response, error in
             
@@ -64,8 +66,11 @@ class UserInfoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func SaveUser(_ sender: Any) {
-        
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
+    
 }
 

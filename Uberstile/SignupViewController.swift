@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var EmailTextfield: UITextField!
     @IBOutlet weak var PasswordTextfield: UITextField!
     @IBOutlet weak var NameTextfield: UITextField!
@@ -18,8 +18,15 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        EmailTextfield.delegate = self
+        PasswordTextfield.delegate = self
+        NameTextfield.delegate = self
+        LastnameTextfield.delegate = self
         
+    
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -37,7 +44,7 @@ class SignupViewController: UIViewController {
         let parameters = ["email": EmailTextfield.text, "password": PasswordTextfield.text, "first_name": NameTextfield.text, "surname": LastnameTextfield.text] as [String : Any]
         
         //create the url with URL
-        let url = URL(string: "http://localhost/api/user/create")! //change the url
+        let url = URL(string: "http://172.16.113.184:5000/api/user/create")! //change the url
         
         //create the session object
         let session = URLSession.shared
