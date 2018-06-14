@@ -20,6 +20,9 @@
 		54E9B33E20CFA30B009E3FB0 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9B33D20CFA30B009E3FB0 /* UserViewController.swift */; };
 		54E9B34020CFA599009E3FB0 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9B33F20CFA599009E3FB0 /* UserInfoViewController.swift */; };
 		54E9B34220CFC764009E3FB0 /* ChangePasswordViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9B34120CFC764009E3FB0 /* ChangePasswordViewcontroller.swift */; };
+		54E9B34420D10A22009E3FB0 /* PendingOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9B34320D10A22009E3FB0 /* PendingOrderTableViewController.swift */; };
+		54E9B34620D1287B009E3FB0 /* JSONTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9B34520D1287B009E3FB0 /* JSONTableData.swift */; };
+		54E9B34820D12F20009E3FB0 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9B34720D12F20009E3FB0 /* Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		54E9B33D20CFA30B009E3FB0 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		54E9B33F20CFA599009E3FB0 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		54E9B34120CFC764009E3FB0 /* ChangePasswordViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewcontroller.swift; sourceTree = "<group>"; };
+		54E9B34320D10A22009E3FB0 /* PendingOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOrderTableViewController.swift; sourceTree = "<group>"; };
+		54E9B34520D1287B009E3FB0 /* JSONTableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTableData.swift; sourceTree = "<group>"; };
+		54E9B34720D12F20009E3FB0 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,9 @@
 				54E9B33D20CFA30B009E3FB0 /* UserViewController.swift */,
 				54E9B33F20CFA599009E3FB0 /* UserInfoViewController.swift */,
 				54E9B34120CFC764009E3FB0 /* ChangePasswordViewcontroller.swift */,
+				54E9B34320D10A22009E3FB0 /* PendingOrderTableViewController.swift */,
+				54E9B34520D1287B009E3FB0 /* JSONTableData.swift */,
+				54E9B34720D12F20009E3FB0 /* Cell.swift */,
 			);
 			path = Uberstile;
 			sourceTree = "<group>";
@@ -277,9 +286,12 @@
 				542B245420C7FA4900DA7B19 /* SignupViewController.swift in Sources */,
 				54E9B34220CFC764009E3FB0 /* ChangePasswordViewcontroller.swift in Sources */,
 				54E9B34020CFA599009E3FB0 /* UserInfoViewController.swift in Sources */,
+				54E9B34420D10A22009E3FB0 /* PendingOrderTableViewController.swift in Sources */,
+				54E9B34620D1287B009E3FB0 /* JSONTableData.swift in Sources */,
 				54E9B33E20CFA30B009E3FB0 /* UserViewController.swift in Sources */,
 				54E9B33C20CFA2FB009E3FB0 /* DriverViewController.swift in Sources */,
 				549974D420C5279A00F560B9 /* ViewController.swift in Sources */,
+				54E9B34820D12F20009E3FB0 /* Cell.swift in Sources */,
 				549974D220C5279A00F560B9 /* AppDelegate.swift in Sources */,
 				542B245620C954D200DA7B19 /* Mainmenu.swift in Sources */,
 			);

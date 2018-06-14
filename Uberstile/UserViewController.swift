@@ -27,6 +27,12 @@ class UserViewController: UIViewController, CLLocationManagerDelegate{
         {
         }
         
+        let uilpgr = UILongPressGestureRecognizer(target: self, action: #selector(UserViewController.longpress(gestureRecognizer:)))
+        
+        uilpgr.minimumPressDuration = 2
+        
+        mapView.addGestureRecognizer(uilpgr)
+        
         Slidertxt.text = String(describing: Slider.value)
         
         if (CLLocationManager.locationServicesEnabled())
@@ -48,6 +54,29 @@ class UserViewController: UIViewController, CLLocationManagerDelegate{
         print(location.coordinate.latitude)
     }
     
+    var annotation_latitude = 0.0
+    var annotation_longitude = 0.0
+    
+    @objc func longpress(gestureRecognizer: UIGestureRecognizer) {
+        
+        mapView.removeAnnotations(self.mapView.annotations)
+        let touchPoint = gestureRecognizer.location(in: self.mapView)
+        
+        let coordinate = mapView.convert(touchPoint, toCoordinateFrom: self.mapView)
+        
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = coordinate
+        
+        annotation.title = "New place"
+        annotation.subtitle = "Maybe I'll go here too..."
+        
+        mapView.addAnnotation(annotation)
+        annotation_latitude = coordinate.latitude
+        annotation_longitude = coordinate.longitude
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -64,7 +93,7 @@ class UserViewController: UIViewController, CLLocationManagerDelegate{
         //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
         let parameters = ["userid": User_idObject, "user_latitude": center.latitude, "user_longtitude": center.longitude, "radius": value] as [String : Any]
         print(parameters)
-        let url = URL(string: "http://localhost/api/user/login")! //change the url
+        let url = URL(string: "http://localhost/api/order/create")! //change the url
         
         //create the session object
         let session = URLSession.shared
@@ -104,9 +133,6 @@ class UserViewController: UIViewController, CLLocationManagerDelegate{
                 let Respones1 = httpresponse.allHeaderFields["Set-Cookie"] as? String
                 print(Respones1)
                 UserDefaults.standard.set(Respones1, forKey: "token")
-            }
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "Login", sender: self)
             }
         }
         task.resume()
