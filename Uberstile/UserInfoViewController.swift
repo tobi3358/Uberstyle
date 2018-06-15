@@ -28,7 +28,7 @@ class UserInfoViewController: UIViewController, UITextFieldDelegate {
         
         if let token = tokenObject as? String {
         }
-        let url = URL(string: "http://172.16.113.184:5000/api/user/details")
+        let url = URL(string: "http://localhost/api/user/details")
         
         let task = URLSession.shared.dataTask(with: url! as URL) { data, response, error in
             

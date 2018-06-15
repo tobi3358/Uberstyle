@@ -36,7 +36,7 @@ class ChangePasswordViewController: UIViewController {
         let parameters = ["password": OldPasswordtxt.text, "new_password": NewPasswordtxt.text] as [String : Any]
         
         //url
-        let url = URL(string: "http://172.16.113.184:5000/api/user/password/change")! //change the url
+        let url = URL(string: "http://localhost/api/user/password/change")! //change the url
         
         //create the session object
         let session = URLSession.shared

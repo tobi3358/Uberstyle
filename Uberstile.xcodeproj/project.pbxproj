@@ -23,6 +23,7 @@
 		54E9B34420D10A22009E3FB0 /* PendingOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9B34320D10A22009E3FB0 /* PendingOrderTableViewController.swift */; };
 		54E9B34620D1287B009E3FB0 /* JSONTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9B34520D1287B009E3FB0 /* JSONTableData.swift */; };
 		54E9B34820D12F20009E3FB0 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9B34720D12F20009E3FB0 /* Cell.swift */; };
+		54E9B34C20D2E9A5009E3FB0 /* PendingOrderTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E9B34B20D2E9A5009E3FB0 /* PendingOrderTableviewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		54E9B34320D10A22009E3FB0 /* PendingOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOrderTableViewController.swift; sourceTree = "<group>"; };
 		54E9B34520D1287B009E3FB0 /* JSONTableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTableData.swift; sourceTree = "<group>"; };
 		54E9B34720D12F20009E3FB0 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		54E9B34B20D2E9A5009E3FB0 /* PendingOrderTableviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingOrderTableviewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				54E9B33F20CFA599009E3FB0 /* UserInfoViewController.swift */,
 				54E9B34120CFC764009E3FB0 /* ChangePasswordViewcontroller.swift */,
 				54E9B34320D10A22009E3FB0 /* PendingOrderTableViewController.swift */,
+				54E9B34B20D2E9A5009E3FB0 /* PendingOrderTableviewCell.swift */,
 				54E9B34520D1287B009E3FB0 /* JSONTableData.swift */,
 				54E9B34720D12F20009E3FB0 /* Cell.swift */,
 			);
@@ -285,6 +288,7 @@
 			files = (
 				542B245420C7FA4900DA7B19 /* SignupViewController.swift in Sources */,
 				54E9B34220CFC764009E3FB0 /* ChangePasswordViewcontroller.swift in Sources */,
+				54E9B34C20D2E9A5009E3FB0 /* PendingOrderTableviewCell.swift in Sources */,
 				54E9B34020CFA599009E3FB0 /* UserInfoViewController.swift in Sources */,
 				54E9B34420D10A22009E3FB0 /* PendingOrderTableViewController.swift in Sources */,
 				54E9B34620D1287B009E3FB0 /* JSONTableData.swift in Sources */,

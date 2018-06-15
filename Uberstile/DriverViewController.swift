@@ -11,6 +11,12 @@ import UIKit
 import MapKit
 
 class DriverViewController: UIViewController, CLLocationManagerDelegate {
+    @IBOutlet weak var FromLabel: UILabel!
+    @IBOutlet weak var ToLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var DistanceLabel: UILabel!
+    @IBOutlet weak var Trip_durationLabel: UILabel!
+    @IBOutlet weak var CreatedAtLabel: UILabel!
     var locationManager: CLLocationManager!
     var jsonlement:NSDictionary = [:]
     
@@ -24,6 +30,12 @@ class DriverViewController: UIViewController, CLLocationManagerDelegate {
         }
         print(jsonlement)
         
+        CreatedAtLabel.text = jsonlement["create_time"]! as! String
+        FromLabel.text = jsonlement["origin"]! as! String
+        ToLabel.text = jsonlement["destination"]! as! String
+        priceLabel.text = "\(jsonlement["price"]!) Kr."
+        DistanceLabel.text = "\(jsonlement["distance"]! as! Double / 1000) Km"
+        Trip_durationLabel.text = "\(jsonlement["trip_duration"]! as! Int / 60) Min"
         if (CLLocationManager.locationServicesEnabled())
         {
             locationManager = CLLocationManager()
@@ -48,10 +60,10 @@ class DriverViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func TakeOrder(_ sender: Any) {
-        let parameters = ["order_id": ID, "driver_cords": ["latitude": center.latitude, "longtitude":center.longitude]] as [String : Any]
+        let parameters = ["order_id": jsonlement["order_id"], "driver_cords": ["latitude": center.latitude, "longtitude":center.longitude]] as [String : Any]
         
         //create the url with URL
-        let url = URL(string: "http://172.16.113.184:5000/api/order/accept")! //change the url
+        let url = URL(string: "http://localhost/api/order/accept")! //change the url
         
         //create the session object
         let session = URLSession.shared

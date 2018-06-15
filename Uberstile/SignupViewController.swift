@@ -44,7 +44,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         let parameters = ["email": EmailTextfield.text, "password": PasswordTextfield.text, "first_name": NameTextfield.text, "surname": LastnameTextfield.text] as [String : Any]
         
         //create the url with URL
-        let url = URL(string: "http://172.16.113.184:5000/api/user/create")! //change the url
+        let url = URL(string: "http://localhost/api/user/create")! //change the url
         
         //create the session object
         let session = URLSession.shared

@@ -106,7 +106,7 @@ class UserViewController: UIViewController, CLLocationManagerDelegate{
         //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
         let parameters = ["price": value1, "destination_cords": ["latitude": annotation_latitude, "longtitude": annotation_longitude], "user_cords": ["latitude": center.latitude, "longtitude": center.longitude]] as [String : Any]
         print(parameters)
-        let url = URL(string: "http://172.16.113.184:5000/api/order/create")! //change the url
+        let url = URL(string: "http://localhost/api/order/create")! //change the url
         
         //create the session object
         let session = URLSession.shared

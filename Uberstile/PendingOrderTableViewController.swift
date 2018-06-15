@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class PendingOrderTableViewController: UITableViewController{
     
@@ -20,7 +21,7 @@ class PendingOrderTableViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "http://172.16.113.184:5000/api/orders/pending")
+        let url = URL(string: "http://localhost/api/orders/pending")
         
         let task = URLSession.shared.dataTask(with: url! as URL) { data, response, error in
             
@@ -38,11 +39,7 @@ class PendingOrderTableViewController: UITableViewController{
                         jsonElement = json[i] as! NSDictionary
                         print(json[i])
                         let cell = Cell()
-                        var id = jsonElement["order_id"] as! Int
-                        var origin = jsonElement["origin"] as! String
                         cell.object = jsonElement
-                        cell.origin = origin
-                        cell.ID = id
                         print(cell)
                         Data.add(cell)
                         
@@ -77,8 +74,13 @@ class PendingOrderTableViewController: UITableViewController{
         return tableData.count
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 100.0;//Choose your custom row height
+    }
+    
     var tableObject:JSONTableData?
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    /*override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         /*tableObject = tableData[indexPath.row]
@@ -86,8 +88,23 @@ class PendingOrderTableViewController: UITableViewController{
         let item: Cell = tableData[indexPath.row] as! Cell
         cell.textLabel?.text = "\(item.ID!)"
         return cell
-    }
+    }*/
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> PendingOrderTableviewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! PendingOrderTableviewCell!
+        
+        if cell == nil {
+            cell = PendingOrderTableviewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
+        }
+        let item: Cell = tableData[indexPath.row] as! Cell
+        cell?.order_idtxt.text = "\(item.object!["order_id"]!)"
+        cell?.Price.text = "\(item.object!["price"]!)"
+        cell?.Adressetxt.text = item.object!["origin"]! as! String
+        print(item)
+        
+        
+        return cell!
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print(tableData[indexPath.item])

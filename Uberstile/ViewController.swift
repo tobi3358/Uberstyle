@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var PasswordTextfield: UITextField!
     var token = "";
     let tokenObject = UserDefaults.standard.object(forKey: "token")
-    let url = URL(string: "http://172.16.113.184:5000/api/user/login")! //change the url
+    let url = URL(string: "http://localhost/api/user/login")! //change the url
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
