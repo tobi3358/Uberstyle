@@ -19,7 +19,6 @@ class Mainmenu: UIViewController {
         
         if let token = tokenObject as? String {
             
-            tokentxt.text = token
             
         }
     }

@@ -79,7 +79,7 @@ class PendingOrderTableViewController: UITableViewController{
         return 100.0;//Choose your custom row height
     }
     
-    var tableObject:JSONTableData?
+    
     /*override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
@@ -124,7 +124,7 @@ class PendingOrderTableViewController: UITableViewController{
             let vc = segue.destination as! DriverViewController
             vc.jsonlement = element
         }else{
-            print("hvor er planen")
+            print("hvor er info")
         }
     }
 }

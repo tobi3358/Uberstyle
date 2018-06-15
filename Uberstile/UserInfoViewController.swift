@@ -44,10 +44,8 @@ class UserInfoViewController: UIViewController, UITextFieldDelegate {
                         UserDefaults.standard.set(json["user_id"], forKey: "user_id")
                         
                         self.Emailtxt.text = json["email"] as! String
-                        //self.nameLabel.text = json["first_name"] as! String
-                        //self.lastnameLabel.text = json["surname"] as! String
-                        self.nameLabel.text = "tobias"
-                        self.lastnameLabel.text = "Brammer"
+                        self.nameLabel.text = json["first_name"] as! String
+                        self.lastnameLabel.text = json["surname"] as! String
                         self.CreatetAt.text = json["created"] as! String
                     }
                     

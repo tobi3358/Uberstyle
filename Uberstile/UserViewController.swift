@@ -101,7 +101,7 @@ class UserViewController: UIViewController, CLLocationManagerDelegate{
     }
     @IBAction func CreateOrder(_ sender: Any) {
         if annotation_longitude == 0.0 {
-            displayAlert(title: "Error in form", message: "Destination has to be selected")
+            displayAlert(title: "Place Destination", message: "Destination has to be selected")
         } else {
         //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
         let parameters = ["price": value1, "destination_cords": ["latitude": annotation_latitude, "longtitude": annotation_longitude], "user_cords": ["latitude": center.latitude, "longtitude": center.longitude]] as [String : Any]
